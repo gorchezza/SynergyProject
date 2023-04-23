@@ -10,8 +10,8 @@
                 <p>Если вы на нашем сайте впервые,<br> то нажмите "Регистрация"!</p>
             </div>
             <div class="buttons">
-                <h2><a class="btn" href="{{ route('registration') }}">Регистрация</a></h2>
-                <h2><a class="btn" href="{{ route('login') }}">Авторизация</a></h2>
+                <h2><a class="btn" href="{{ route('user.registration') }}">Регистрация</a></h2>
+                <h2><a class="btn" href="{{ route('user.login') }}">Аутентификация</a></h2>
             </div>
         </div>
     </div>

@@ -7,22 +7,32 @@
             <div class="reg-cont">
                 <div class="title-reg">
                     <h1>Регистрация</h1>
-                    <p class='error'></p>
+                    @if ($errors->any())
+                    <div class="errors">
+                        <ul calss="errors-ul">
+                            @foreach($errors->all() as $error)
+                            <li class="error">{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
                 </div>
                 <div class="form-container">
-                    <form name="" method="post" action="reg.php">
+                    <form name="registration" method="post" action="{{ route('user.register') }}">
+                        @csrf
                         <fieldset class="names">
                             <legend>ФИО</legend>
                             <div class="inputs-reg">
                                 <div class="cont-inp">
-                                    <input class="reg-inp" type="text" name="second-name" value="" placeholder="Фамилия"
+                                    <input class="reg-inp" type="text" name="second_name" value="" placeholder="Фамилия"
                                         required />
                                 </div>
                                 <div class="cont-inp">
-                                    <input class="reg-inp" type="text" name="first-name" value="" placeholder="Имя" required />
+                                    <input class="reg-inp" type="text" name="first_name" value="" placeholder="Имя" 
+                                        required />
                                 </div>
                                 <div class="cont-inp">
-                                    <input class="reg-inp" type="text" name="three-name" value="" placeholder="Отчество"
+                                    <input class="reg-inp" type="text" name="three_name" value="" placeholder="Отчество"
                                         required />
                                 </div>
                             </div>
@@ -31,24 +41,24 @@
                             <legend>Паспортные данные</legend>
                             <div class="inputs-reg">
                                 <div class="cont-inp">
-                                    <input class="reg-inp" type="text" name="id-pass" value="" placeholder="Серия и номер паспорта" />
-                                </div>
-                                <div class="cont-inp">
-                                    <input class="reg-inp" type="text" name="reg-date" value="" placeholder="Дата выдачи" />
+                                    <input class="reg-inp" type="text" name="id_passport" value="" placeholder="Серия и номер паспорта" maxlength="10"/>
                                 </div>
                                 <div class="cont-inp">
                                     <input class="reg-inp" type="text" name="issued" value="" placeholder="Кем выдан" />
                                 </div>
+                                <div class="cont-inp">
+                                    <input class="reg-inp"  name="register_date" value="" placeholder="Дата выдачи" type="datetime-local"/>
+                                </div>
                             </div>
                             <div class="inputs-reg">
                                 <div class="cont-inp">
-                                    <input class="reg-inp" type="text" name="brith-date" value="" placeholder="Дата рождения" />
+                                    <input class="reg-inp" type="text" name="brith_date" value="" placeholder="Дата рождения" />
                                 </div>
                                 <div class="cont-inp">
-                                    <input class="reg-inp" type="text" name="brith-place" value="" placeholder="Место рождения" />
+                                    <input class="reg-inp" type="text" name="brith_place" value="" placeholder="Место рождения" />
                                 </div>
                                 <div class="cont-inp">
-                                    <input class="reg-inp" type="text" name="resident-place" value="" placeholder="Место проживания" />
+                                    <input class="reg-inp" type="text" name="resident_place" value="" placeholder="Место проживания" />
                                 </div>
                             </div>
                         </fieldset>
@@ -61,7 +71,7 @@
                             </div>
                         </div>
                         <div class="addition">
-                            <h3>Есть аккаунт? <a class="reg" href="{{ route('login') }}">Авторизация</a>
+                            <h3>Есть аккаунт? <a class="reg" href="{{ route('user.login') }}">Авторизация</a>
                             </h3>
                         </div>
                         <div class="submit">

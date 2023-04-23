@@ -6,11 +6,20 @@
         <div class="container">
             <div class="login-cont">
                 <div class="title">
-                    <h1>Авторизация</h1>
-                    <p class='error'></p>
+                    <h1>Аутентификация</h1>
+                    @if ($errors->any())
+                    <div class="errors">
+                        <ul calss="errors-ul">
+                            @foreach($errors->all() as $error)
+                            <li class="error">{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
                 </div>
                 <div class="form-container">
-                    <form name="login" method="post" action="#">
+                    <form name="login" method="post" action="{{ route('user.loginPost') }}">
+                        @csrf
                         <div class="inputs">
                             <div class="cont-inp">
                                 <input class="inp" type="email" name="email" value="" placeholder="Почта" required/>
@@ -21,7 +30,7 @@
                         </div>
                         <div class="addition">
                             <h3>Еще нет аккаунта? <a class="reg"
-                                    href="{{ route('registration') }}">Регистрация</a></h3>
+                                    href="{{ route('user.registration') }}">Регистрация</a></h3>
                         </div>
                         <div class="submit">
                             <button class="btn" type="submit" name="button-log">

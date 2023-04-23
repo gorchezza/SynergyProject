@@ -15,3 +15,13 @@ mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
         //
     ]);
+
+// mix.styles([
+//     'resources/assets/css/bootstrap.min.css',
+//     // Другие стили
+//     ], 'public/css/app.css');
+    
+// mix.scripts([
+// 'resources/assets/js/notification/SmartNotification.min.js',
+// // Другие js скрипты
+// ], 'public/js/scripts.js');
