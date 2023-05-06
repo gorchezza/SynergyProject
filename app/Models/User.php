@@ -38,6 +38,8 @@ class User extends Authenticatable
         'resident_place',
         'email',
         'password',
+        'avatar',
+        'nickname',
     ];
 
     /**

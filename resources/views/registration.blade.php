@@ -1,8 +1,8 @@
-@extends('loyouts/main')
+@extends('layouts/main')
 
 @section('main')
 
-    <section>
+    <section> 
         <div class="container">
             <div class="reg-cont">
                 <div class="title-reg">
@@ -40,24 +40,24 @@
                         <fieldset class="pasport">
                             <legend>Паспортные данные</legend>
                             <div class="inputs-reg">
-                                <div class="cont-inp">
+                                <div class="cont-inp-reg">
                                     <input class="reg-inp" type="text" name="id_passport" value="" placeholder="Серия и номер паспорта" maxlength="10"/>
                                 </div>
-                                <div class="cont-inp">
+                                <div class="cont-inp-reg">
                                     <input class="reg-inp" type="text" name="issued" value="" placeholder="Кем выдан" />
                                 </div>
-                                <div class="cont-inp">
-                                    <input class="reg-inp"  name="register_date" value="" placeholder="Дата выдачи" type="datetime-local"/>
+                                <div class="cont-inp-reg">
+                                    <input class="reg-inp"  name="register_date" value="" placeholder="Дата выдачи" type="text"/>
                                 </div>
                             </div>
                             <div class="inputs-reg">
-                                <div class="cont-inp">
+                                <div class="cont-inp-reg">
                                     <input class="reg-inp" type="text" name="brith_date" value="" placeholder="Дата рождения" />
                                 </div>
-                                <div class="cont-inp">
+                                <div class="cont-inp-reg">
                                     <input class="reg-inp" type="text" name="brith_place" value="" placeholder="Место рождения" />
                                 </div>
-                                <div class="cont-inp">
+                                <div class="cont-inp-reg">
                                     <input class="reg-inp" type="text" name="resident_place" value="" placeholder="Место проживания" />
                                 </div>
                             </div>
@@ -67,7 +67,11 @@
                                 <input class="reg-inp" type="email" name="email" value="" placeholder="Почта" />
                             </div>
                             <div class="cont-inp">
-                                <input class="reg-inp" type="password" name="password" placeholder="Пароль" />
+                                <div class="pass-with-btn">
+                                    <input id="password" class="reg-inp-pass" type="password" name="password" placeholder="Пароль" /><img  id="pass-generation-btn" class="pass-generation-btn" src="storage/icons/pass-icon-gen.png" alt="">
+                                    <button id="toggle-btn" class="toggle-pass-btn" onclick="togglePasswordVisibility()">Показать</button>
+                                    <button onclick="generatePassword()" hidden>Сгенерировать пароль</button></button>
+                                </div>
                             </div>
                         </div>
                         <div class="addition">

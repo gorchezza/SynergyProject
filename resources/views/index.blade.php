@@ -1,4 +1,4 @@
-@extends('loyouts/main')
+@extends('layouts/main')
 
 @section('main')
 
@@ -6,7 +6,7 @@
     <div class="container">
         <div class="index-cont">
             <div class="title">
-                <h1>Добро пожаловать!</h1>
+                <h1 class="welcome">Добро пожаловать!</h1>
                 <p>Если вы на нашем сайте впервые,<br> то нажмите "Регистрация"!</p>
             </div>
             <div class="buttons">

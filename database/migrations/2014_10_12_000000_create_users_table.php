@@ -1,8 +1,11 @@
 <?php
 
+use Faker\Factory as FakerFactory;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
 
 class CreateUsersTable extends Migration
 {
@@ -16,7 +19,7 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             // $table->rememberToken();
             $table->id();
-            $table->string('about')->nullable(true);
+            $table->text('about')->nullable(true);
             $table->string('first_name');
             $table->string('second_name');
             $table->string('three_name');
@@ -29,6 +32,9 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('avatar')->default(addslashes('storage\default\default.png'));
+            $table->string('nickname')->default('userNickname'); 
+            $table->string('user_id')->default('#' . mt_rand(1000, 10_000));
             $table->timestamps();
             $table->softDeletes();
         });

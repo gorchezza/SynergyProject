@@ -13,19 +13,6 @@ use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Register Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
-    */
-
-  
-
     use RegistersUsers;
 
     /**
@@ -35,16 +22,7 @@ class RegisterController extends Controller
      */
     protected $redirectTo = RouteServiceProvider::PRIVATE;
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    // public function __construct()
-    // {
-    //     $this->middleware('guest');
-    // }
-
+    
     public function getViewRegistration(){
 
         if(Auth::check()){
@@ -54,39 +32,19 @@ class RegisterController extends Controller
         return view('registration');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    // public function validator(array $data)
-    // {
-    //     return Validator::make($data, [
-    //         // 'name' => ['required', 'string', 'max:255'],
-    //         // 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-    //         // 'password' => ['required', 'string', 'min:8', 'confirmed'],
-    //         'first_name' => 'string',
-    //         'second_name' => 'string',
-    //         'three_name' => 'string',
-    //         'id_passport' => 'string',
-    //         'issued' => 'string',
-    //         'register_date' => 'string',
-    //         'brith_date' => 'string',
-    //         'brith_place' => 'string',
-    //         'resident_place' => 'string',
-    //         'email' => 'string',
-    //         'password' => 'string',
-    //     ]);
-    //     dd($data);
-    // }
+    // /**
+    //  * Get a validator for an incoming registration request.
+    //  *
+    //  * @param  array  $data
+    //  * @return \Illuminate\Contracts\Validation\Validator
+    //  */
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\Models\User
-     */
+    // /**
+    //  * Create a new user instance after a valid registration.
+    //  *
+    //  * @param  array  $data
+    //  * @return \App\Models\User
+    //  */
     protected function create()
     {
         if(Auth::check()){
@@ -132,13 +90,13 @@ class RegisterController extends Controller
         $user = User::create($hashFields);
         if($user){
             Auth::login($user);
-            return redirect( route('user.private'))->with($user);
+            return redirect( route('user.private'));
         }
 
         return redirect(route('user.login'))->withErrors([
             'formError' => 'Произошла ошибка при сохрании пользователя'
         ]);
 
-        // return view('private', $validateFields);
+        return redirect(route('user.private'));
     }
 }

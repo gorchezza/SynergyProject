@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use Illuminate\Support\Facades\Hash;
+
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -15,11 +17,21 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name(),
+            'first_name' => $this->faker->firstName(),
+            'second_name' => $this->faker->firstName(),
+            'three_name' => $this->faker->lastName(),
+            'id_passport' => mt_rand(1_000_000_000, 10_000_000_000),
+            'issued' => 'МВД',
+            'register_date' => $this->faker->date('Y-m-d', 'now'),
+            'brith_date' => '1',
+            'brith_place' => '1',
+            'resident_place' => '1',
             'email' => $this->faker->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'remember_token' => Str::random(10),
+            'email_verified_at' => NULL,
+            'password' => Hash::make('123'), 
+            'avatar' => 'storage\default\default.png',
+            'nickname' => $this->faker->userName(),
+            'user_id' => '#' . mt_rand(1000, 10_000),
         ];
     }
 

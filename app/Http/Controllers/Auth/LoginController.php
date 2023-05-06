@@ -16,6 +16,7 @@ class LoginController extends Controller
         }else{
             return view('login');
         }
+        return view('login');
     }
 
     public function login(){
@@ -25,10 +26,6 @@ class LoginController extends Controller
         }
 
         $formFields = request()->only(['email', 'password']);
-        // $formFields = request()->validate([
-        //     'email' => 'string',
-        //     'password' => 'string',
-        // ]);
 
         if (isset(User::where('email', $formFields['email'])->get()[0])){
             if(Auth::attempt($formFields)){

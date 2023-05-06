@@ -36,26 +36,36 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
-Route::post('about', 'AboutController@get')->name('about');
+// Route::post('about', 'AboutController@get')->name('about');
+Route::get('some', 'AboutController@some')->name('some');
 
 
 Route::name('user.')->group(function(){
+    Route::get('home', 'HomeController@index')->name('home');
     Route::get('/', 'IndexController@index')->name('index');
 
-    Route::get('private', 'PrivateController@getViewPrivate')->middleware('auth')->name('privateView');
+    Route::get('private', 'PrivateController@getPrivate')->middleware('auth')->name('private');
     Route::get('registration', 'Auth\RegisterController@getViewRegistration')->name('registration');
     Route::get('login', 'Auth\LoginController@getViewLogin')->name('login'); 
-
-    Route::post('private', 'PrivateController@getPrivate')->name('private');
-    Route::post('registration', 'Auth\RegisterController@create')->name('register');
-    Route::post('login', 'Auth\LoginController@login')->name('loginPost'); 
-
-    Route::get('home', 'HomeController@index')->name('home');
 
     Route::get('logout', function(){
         Auth::logout();
         return redirect(route('user.index'));
     })->name('logout');
+
+    Route::get('verification/email', 'Auth\VerificationEmailController@some')->name('verificationEmail');
+
     
-    
+    Route::post('registration', 'Auth\RegisterController@create')->name('register');
+    Route::post('login', 'Auth\LoginController@login')->name('loginPost'); 
+    Route::post('update', 'PrivateController@updateUserData')->name('update');
+
+    Route::post('/upload/avatar', 'PrivateController@upload')->name('avatar');
+    Route::post('/upload/nickname', 'PrivateController@uploadNickname')->name('nickname');
+
+
 });
+
+
+
+
