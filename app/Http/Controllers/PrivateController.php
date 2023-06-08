@@ -29,6 +29,7 @@ class PrivateController extends Controller
             'brith_place' => 'string',
             'resident_place' => 'string',
         ]);
+        dd($validateFields);
         
         $user = auth()->user();
         $user->update($validateFields);

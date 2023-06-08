@@ -24,8 +24,8 @@ class AboutController extends Controller
         ]);
         $user = User::where('id_passport', $validateFields['id_passport']);
         $user->update($validateFields);
-        dd($validateFields);
-        // return view("about");
+        // dd($validateFields);
+        return view("about");
     } 
 
     public function some(){

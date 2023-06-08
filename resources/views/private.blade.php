@@ -4,7 +4,8 @@
     <div class="flex-container">
         @extends('layouts/header')
         <main>
-            <div class="notification-conteiner">
+            {{--             
+            <div class="notification-container">
                 <h2 class="nitofication-title">Уведомления</h2>
                 <div class="notification-message">
                     Уведомлений пока нет
@@ -15,7 +16,7 @@
                         {{ session('status') }}
                     </div>
                 @endif
-            </div>
+            </div> --}}
            
             <section class="lk">
                 <div class="user">
@@ -147,7 +148,8 @@
             </section>
         </main>
         <footer>
-
+            <div class="author"><a href="https://github.com/gorchezza" target="_blank">@gorchezza</a></div>
         </footer>
     </div>
+
 @endsection

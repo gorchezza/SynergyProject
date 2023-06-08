@@ -75,7 +75,7 @@
                             </div>
                         </div>
                         <div class="addition">
-                            <h3>Есть аккаунт? <a class="reg" href="{{ route('user.login') }}">Авторизация</a>
+                            <h3>Есть аккаунт? <a class="reg" href="{{ route('user.login') }}">Аутентификация</a>
                             </h3>
                         </div>
                         <div class="submit">

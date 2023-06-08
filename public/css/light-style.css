@@ -4,19 +4,24 @@
 GLOBAL
  */
 :root {
-    --primary-gradient: linear-gradient(to bottom, rgba(0, 253, 194, 0.1), rgba(3, 255, 226, 0.1));
-    --primary-gradient: linear-gradient(to bottom, rgba(255, 61, 7, 0.1), rgba(249, 162, 32, 0.1));
+    --primary-gradient: linear-gradient(to bottom, rgba(180, 233, 255, 0.8), rgba(255, 253, 255, 0.9));
     --primary-border-line: rgba(255, 255, 255, 0.7);
-    --primary-bg-inputs-color: rgba(0, 0, 0, 0.2);
+    --primary-bg-inputs-color: rgba(255, 255, 255, 0.2);
     --primary-bg-color-hover: rgba(0, 0, 0, 0.2);
-    --primary-description-text-color: rgba(0, 0, 0, 0.5);
-    --primary-background-img: url(bg-formatted@0\,25x.png);
+    --primary-description-text-color: rgba(255, 255, 255, 0.5);
+    --primary-background-img: url(../storage/images/light-bg.png);
+    --primary-hover-bgcolor: rgba(255, 255, 255, 0.9); 
+    --primary-hover-font-color: rgb(0, 0, 0, 1);
+    --primary-placeholder-font-text: rgba(255, 255, 255, 0.5);
+    --primary-font-color: rgba(255, 255, 255, 1);
+    --primary-background-header: rgb(20, 23, 49);
 }
 
 body {
     background-image: var(--primary-background-img);
     background-size: cover;
     background-repeat: no-repeat;
+    color: rgba(255, 255, 255, 1)
 }
 
 .flex-container {
@@ -25,11 +30,11 @@ body {
 }
 
 header {
+    color:rgb(255, 255, 255);
     flex-grow: 1;
-    background: rgb(255, 255, 255);
+    background: var(--primary-background-header);
     z-index: 2;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.175);
-
 }
 
 main {
@@ -42,6 +47,13 @@ footer {
     background-color: #000;
     flex-shrink: 0;
     margin-top: 100px;
+}
+
+.author {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
@@ -59,7 +71,7 @@ fieldset {
 
 ::-webkit-input-placeholder {
     /* WebKit browsers */
-    color: rgba(0, 0, 0, 0.5);
+    color: var(--primary-placeholder-font-text);
 }
 
 html {
@@ -79,7 +91,7 @@ h3 {
 }
 
 p {
-    color: rgba(0, 0, 0, 0.5);
+    color: var(--primary-description-text-color);
 }
 
 a {
@@ -100,6 +112,7 @@ textarea {
     padding: 0px;
     font-family: "Poppins", sans-serif;
     font-size: 16px;
+    color: var(--primary-font-color)
 }
 
 
@@ -172,13 +185,13 @@ INDEX
     background-color: transparent;
     border: 2px solid rgba(255, 255, 255, 0.5);
     border-radius: 10px;
-    color: #000;
+    color: var(--primary-font-color);
 }
 
 .btn:hover {
     transition: 0.4s;
-    background-color: #000;
-    color: #fff;
+    background-color: var(--primary-hover-bgcolor);
+    color: var(--primary-hover-font-color);
 }
 
 /* 
@@ -214,7 +227,7 @@ LOGIN
     outline: none;
     border: 1px solid var(--primary-border-line);
     border-radius: 10px;
-    color: #000;
+    color: rgb(255, 255, 255);
 }
 
 .inp:active,
@@ -278,9 +291,8 @@ REGISTRATION
     background-color: transparent;
     outline: none;
     border: 1px solid var(--primary-border-line);
-    ;
     border-radius: 10px;
-    color: #000;
+    color: var(--primary-font-color);
     flex-wrap: 1;
 }
 
@@ -297,8 +309,14 @@ REGISTRATION
     background-color: transparent;
     outline: none;
     border: none;
-    color: #000;
+    color: var(--primary-font-color);
     flex-wrap: 1;
+}
+
+.reg-inp-pass:active,
+.reg-inp-pass:focus {
+    background-color: var(--primary-bg-inputs-color);
+    color: #fff;
 }
 
 .reg-inp:active,
@@ -319,6 +337,7 @@ REGISTRATION
     height: 32px;
     width: 32px;
     cursor: pointer;
+    filter: invert();
 }
 
 .toggle-pass-btn {
@@ -331,7 +350,8 @@ REGISTRATION
     
 }
 .toggle-pass-btn:hover {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--primary-hover-bgcolor);
+    color: var(--primary-hover-font-color);
 }
 /* 
 FORMS/ERRORS
@@ -369,6 +389,7 @@ PRIVATE AREA
     height: 28px;
     width: 28px;
     cursor: pointer;
+    filter: invert();
 }
 
 .notification-icon:hover {
@@ -378,6 +399,7 @@ PRIVATE AREA
 
 .logo {
     flex-grow: 6;
+    color: var(--primary-font-color);
 }
 
 nav {
@@ -398,7 +420,7 @@ nav {
 }
 
 .user-btn {
-    padding: 10px 15px
+    padding: 10px 15px;
 }
 
 .user-btn:hover {
@@ -446,7 +468,7 @@ nav {
     flex-direction: column;
 
     background: var(--primary-gradient);
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.175);
+    box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.175);
     padding: 50px;
     border-radius: 0 0 40px 40px;
 }
@@ -485,6 +507,7 @@ nav {
     height: 28px;
     width: 28px;
     cursor: pointer;
+    filter: invert();
 }
 
 .avatar {
@@ -627,7 +650,7 @@ nav {
     color: black;
 }
 
-.notification-conteiner {
+.notification-container {
     left: 50vw;
     position: absolute;
     display: flex;
@@ -640,6 +663,7 @@ nav {
 
     padding: 20px;
     background-color: #aaa;
+
 }
 
 .nitofication-title {
@@ -648,6 +672,38 @@ nav {
 
 .notification-message {
     flex-grow: 3;
+}
+
+/* THEME TOGGLE */
+
+.theme-toggle {
+    position: fixed;
+    bottom: 20px; /* расстояние от нижнего края */
+    left: 20px; /* расстояние от левого края */
+    z-index: 10;
+    background-color: var(--primary-bg-inputs-color);
+    padding: 10px;
+}
+
+.btn-tggole {
+    height: 40px;
+    width: 40px;
+    border: none;
+    outline: none;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.light {
+    background-color: #fff;
+}
+
+.dark {
+    background-color: #07001f;
+}
+
+.pink {
+    background-color: rgb(255, 153, 233);
 }
 
 
