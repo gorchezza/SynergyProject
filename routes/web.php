@@ -41,21 +41,19 @@ Route::get('some', 'AboutController@some')->name('some');
 
 
 Route::name('user.')->group(function(){
-    Route::get('home', 'HomeController@index')->name('home');
     Route::get('/', 'IndexController@index')->name('index');
 
     Route::get('private', 'PrivateController@getPrivate')->middleware('auth')->name('private');
     Route::get('registration', 'Auth\RegisterController@getViewRegistration')->name('registration');
     Route::get('login', 'Auth\LoginController@getViewLogin')->name('login'); 
-
     Route::get('logout', function(){
         Auth::logout();
         return redirect(route('user.index'));
     })->name('logout');
 
-    Route::get('verification/email', 'Auth\VerificationEmailController@some')->name('verificationEmail');
+    Route::get('verificationEmail', 'Auth\VerificationEmailController@getViewVerificationEmail')->name('verificationEmail');
+    // Route::psot('VerificationEmail', 'Auth\VerificationEmailController@submitCodeInPost')->name('submitCode');
 
-    
     Route::post('registration', 'Auth\RegisterController@create')->name('register');
     Route::post('login', 'Auth\LoginController@login')->name('loginPost'); 
     Route::post('update', 'PrivateController@updateUserData')->name('update');
@@ -63,9 +61,10 @@ Route::name('user.')->group(function(){
     Route::post('/upload/avatar', 'PrivateController@upload')->name('avatar');
     Route::post('/upload/nickname', 'PrivateController@uploadNickname')->name('nickname');
 
+    Route::get('users', 'PrivateController@getJson')->name('getJson')->withoutMiddleware(['csrf']);
+
+    Route::post('verificationEmail', 'Auth\VerificationEmailController@submitCodeInPost')->name('submitCode');
 
 });
-
-
 
 

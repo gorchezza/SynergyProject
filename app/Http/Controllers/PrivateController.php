@@ -84,4 +84,24 @@ class PrivateController extends Controller
         }
 
     } 
+
+    public function getJson() {
+        // if (true) {
+        //     $numsArray = [1, 4, 12, -23, 45, 2];
+        //     $json = json_encode($numsArray);
+
+           
+        //     return response($json);
+        //   }
+
+        $numsArray = [1, 4, 12, -23, 45, 2];
+        // $json = json_encode($numsArray);
+
+        return response()->json($numsArray);
+    }
+
+    public function email() {
+        return view('auth/passwords/email');
+    }
+
 }

@@ -4,16 +4,22 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use App\Models\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
+use App\Models\Mail;
 use Illuminate\Support\Facades\Auth;
 
-class RegisterController extends Controller
+
+class VerificationEmailController extends Controller
 {
-    public function some()
+    public function getViewVerificationEmail() 
     {
-        return dd("Все работает");
+        $user = Auth::user();
+        return view('email', $user);
     }
+
+    public function submitCodeInPost() 
+    {
+        $email = request()->email;
+        Mail::to("$email")->send('Здарова');
+    }
+
 }

@@ -1,11 +1,22 @@
 @extends('layouts/main')
 
 @section('main')
-
     <div class="flex-container">
         @extends('layouts/header')
-    @section('header')
         <main>
+            <div class="notification-conteiner">
+                <h2 class="nitofication-title">Уведомления</h2>
+                <div class="notification-message">
+                    Уведомлений пока нет
+                </div>
+                <a href="{{ route('user.verificationEmail') }}">Сюды</a>
+                @if (session('status'))
+                    <div class="alert alert-success">
+                        {{ session('status') }}
+                    </div>
+                @endif
+            </div>
+           
             <section class="lk">
                 <div class="user">
                     @if ($errors->any())

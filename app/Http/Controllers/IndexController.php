@@ -18,6 +18,7 @@ class IndexController extends Controller
         if(Auth::check()){
             return redirect(route('user.private'));
         }
+        
         return view('index');
     }
 

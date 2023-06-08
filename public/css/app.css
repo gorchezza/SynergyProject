@@ -8,12 +8,14 @@ GLOBAL
     --primary-gradient: linear-gradient(to bottom, rgba(255, 61, 7, 0.1), rgba(249, 162, 32, 0.1));
     --primary-border-line: rgba(255, 255, 255, 0.7);
     --primary-bg-inputs-color: rgba(0, 0, 0, 0.2);
+    --primary-bg-color-hover: rgba(0, 0, 0, 0.2);
+    --primary-description-text-color: rgba(0, 0, 0, 0.5);
+    --primary-background-img: url(bg-formatted@0\,25x.png);
 }
 
 body {
-    background-image: url(bg-formatted@0\,25x.png);
+    background-image: var(--primary-background-img);
     background-size: cover;
-    /* background: rgb(232, 232, 232); */
     background-repeat: no-repeat;
 }
 
@@ -360,11 +362,27 @@ PRIVATE AREA
 
 }
 
+.notification-icon {
+    border-radius: 50%;
+    padding: 5px;
+    margin-right: 15px;
+    height: 28px;
+    width: 28px;
+    cursor: pointer;
+}
+
+.notification-icon:hover {
+    transition: 0.3s;
+    background-color: var(--primary-bg-color-hover);
+}
+
 .logo {
     flex-grow: 6;
 }
 
 nav {
+    display: flex;
+    align-items: center;
     flex-grow: 1;
     justify-items: flex-end;
 }
@@ -384,7 +402,7 @@ nav {
 }
 
 .user-btn:hover {
-    background-color: rgba(0, 0, 0, 0.175);
+    background-color: var(--primary-bg-color-hover);
     border-radius: 40px;
     transition: 0.4s;
 }
@@ -399,7 +417,7 @@ nav {
 
 .logout-btn:hover {
     transition: 0.4s;
-    background-color: rgba(0, 0, 0, 0.175);
+    background-color: var(--primary-bg-color-hover);
     border-radius: 40px;
 }
 
@@ -607,4 +625,51 @@ nav {
 
 .close-nickname:hover {
     color: black;
+}
+
+.notification-conteiner {
+    left: 50vw;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 20vh;
+    width: 20vw;
+
+    padding: 20px;
+    background-color: #aaa;
+}
+
+.nitofication-title {
+    flex-grow: 1;
+}
+
+.notification-message {
+    flex-grow: 3;
+}
+
+
+
+/* EMAIL VERIFICATION */
+
+.email-confirm-cont {
+    padding: 40px;
+
+    border: 2px solid #fff;
+    border-radius: 20px;
+    user-select: none;
+
+    background: var(--primary-gradient);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.175);
+}
+
+.description {
+    text-align: center;
+    color: var(--primary-description-text-color);
+}
+
+.email-confirm-form {
+    margin-top: 40px;
 }
