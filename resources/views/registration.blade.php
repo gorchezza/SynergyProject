@@ -70,7 +70,6 @@
                                 <div class="pass-with-btn">
                                     <input id="password" class="reg-inp-pass" type="password" name="password" placeholder="Пароль" /><img  id="pass-generation-btn" class="pass-generation-btn" src="storage/icons/pass-icon-gen.png" alt="">
                                     <button id="toggle-btn" class="toggle-pass-btn" onclick="togglePasswordVisibility()">Показать</button>
-                                    <button onclick="generatePassword()" hidden>Сгенерировать пароль</button></button>
                                 </div>
                             </div>
                         </div>

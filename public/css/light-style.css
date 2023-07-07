@@ -4,24 +4,37 @@
 GLOBAL
  */
 :root {
-    --primary-gradient: linear-gradient(to bottom, rgba(180, 233, 255, 0.8), rgba(255, 253, 255, 0.9));
-    --primary-border-line: rgba(255, 255, 255, 0.7);
-    --primary-bg-inputs-color: rgba(255, 255, 255, 0.2);
+    --primary-gradient: linear-gradient(to bottom, rgba(223, 223, 223, 0.8), rgba(228, 228, 228, 0.9));
+    --primary-border-line: rgba(0, 0, 0, 0.7);
+    --primary-bg-inputs-color: rgba(0, 0, 0, 0.2);
     --primary-bg-color-hover: rgba(0, 0, 0, 0.2);
-    --primary-description-text-color: rgba(255, 255, 255, 0.5);
+    --primary-description-text-color: rgba(0, 0, 0, 0.5);
     --primary-background-img: url(../storage/images/light-bg.png);
-    --primary-hover-bgcolor: rgba(255, 255, 255, 0.9); 
-    --primary-hover-font-color: rgb(0, 0, 0, 1);
-    --primary-placeholder-font-text: rgba(255, 255, 255, 0.5);
-    --primary-font-color: rgba(255, 255, 255, 1);
-    --primary-background-header: rgb(20, 23, 49);
+    --primary-background-color: rgb(202, 202, 202);
+    --primary-hover-bgcolor: rgba(0, 0, 0, 1); 
+    --primary-hover-font-color: rgb(255, 255, 255);
+    --primary-placeholder-font-text: rgba(48, 48, 48, 0.5);
+    --primary-font-color: rgb(0, 0, 0);
+    --primary-background-header: rgb(255, 255, 255);
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #000000;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+
 body {
-    background-image: var(--primary-background-img);
+    /* background-image: var(--primary-background-img); */
+    background-color: var(--primary-background-color);
     background-size: cover;
     background-repeat: no-repeat;
-    color: rgba(255, 255, 255, 1)
+    color: var(--primary-font-color);
+    
 }
 
 .flex-container {
@@ -44,7 +57,7 @@ main {
 footer {
     height: 100px;
     flex-grow: 1;
-    background-color: #000;
+    background-color: #020011;
     flex-shrink: 0;
     margin-top: 100px;
 }
@@ -54,6 +67,15 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    color:rgb(255, 255, 255);
+}
+
+.author-link {
+    color: inherit;
+}
+
+.author-link:visited {
+    color: inherit;
 }
 
 .container {
@@ -100,7 +122,7 @@ a {
 
 
 a:visited {
-    color: inherit;
+    color: var(--primary-font-color);
 }
 
 textarea {
@@ -183,7 +205,7 @@ INDEX
 .btn {
     padding: 10px 12px;
     background-color: transparent;
-    border: 2px solid rgba(255, 255, 255, 0.5);
+    border: 2px solid rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     color: var(--primary-font-color);
 }
@@ -337,13 +359,13 @@ REGISTRATION
     height: 32px;
     width: 32px;
     cursor: pointer;
-    filter: invert();
+    filter: none;
 }
 
 .toggle-pass-btn {
     width: 70px;
     background-color: transparent;
-    color: #fefefe;
+    color: var(--primary-font-color);
     border: none;
     border-radius: 10px;
     outline: none;
@@ -389,7 +411,6 @@ PRIVATE AREA
     height: 28px;
     width: 28px;
     cursor: pointer;
-    filter: invert();
 }
 
 .notification-icon:hover {
@@ -507,15 +528,14 @@ nav {
     height: 28px;
     width: 28px;
     cursor: pointer;
-    filter: invert();
-}
+ }
 
 .avatar {
     width: 200px;
     height: 200px;
     object-fit: cover;
     padding: 5px;
-    border: 3px solid white;
+    border: 3px solid rgb(0, 0, 0);
     border-radius: 50%;
     cursor: pointer;
 }

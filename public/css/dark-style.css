@@ -7,7 +7,7 @@ GLOBAL
     --primary-gradient: linear-gradient(to bottom, rgba(46, 63, 173, 0.182), rgba(139, 72, 155, 0.2));
     --primary-border-line: rgba(255, 255, 255, 0.7);
     --primary-bg-inputs-color: rgba(255, 255, 255, 0.2);
-    --primary-bg-color-hover: rgba(0, 0, 0, 0.2);
+    --primary-bg-color-hover: rgba(255, 255, 255, 0.2);
     --primary-description-text-color: rgba(255, 255, 255, 0.5);
     --primary-background-img: url(../storage/images/dark-bg.png);
     --primary-hover-bgcolor: rgba(255, 255, 255, 0.9); 
@@ -15,6 +15,15 @@ GLOBAL
     --primary-placeholder-font-text: rgba(255, 255, 255, 0.5);
     --primary-font-color: rgba(255, 255, 255, 1);
     --primary-background-header: rgb(20, 23, 49);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #ffffff;
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 body {
@@ -44,7 +53,7 @@ main {
 footer {
     height: 100px;
     flex-grow: 1;
-    background-color: #000;
+    background-color: #020011;
     flex-shrink: 0;
     margin-top: 100px;
 }
@@ -394,7 +403,7 @@ PRIVATE AREA
 
 .notification-icon:hover {
     transition: 0.3s;
-    background-color: var(--primary-bg-color-hover);
+    background-color:  rgba(0, 0, 0, 0.2);;
 }
 
 .logo {
@@ -619,7 +628,7 @@ nav {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #fefefe;
+    background-color: rgb(20, 23, 49);
     padding: 20px;
     width: 100%;
     max-width: 400px;
@@ -729,3 +738,4 @@ nav {
 .email-confirm-form {
     margin-top: 40px;
 }
+

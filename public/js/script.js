@@ -119,20 +119,22 @@ if (path == "http://127.0.0.1:8000/registration"){
 let light = document.getElementById('light-theme');
 let dark = document.getElementById('dark-theme');
 let pink = document.getElementById('pink-theme');
-var styleLink = document.getElementById('style');
+let styleLink = document.getElementById('style');
+
+styleLink.href = localStorage.getItem('selectedStyle');
 
 light.addEventListener('click', function() {
   styleLink.href = "css/light-style.css"
-  localStorage.setItem('selectedStyle', light);
+  localStorage.setItem('selectedStyle', "css/light-style.css");
 });
 
 dark.addEventListener('click', function() {
   styleLink.href = "css/dark-style.css"
-  localStorage.setItem('selectedStyle', dark);
+  localStorage.setItem('selectedStyle', "css/dark-style.css");
 });
 
 pink.addEventListener('click', function() {
   styleLink.href = "css/pink-style.css"
-  localStorage.setItem('selectedStyle', pink);
+  localStorage.setItem('selectedStyle', "css/pink-style.css");
 });
 

@@ -148,7 +148,7 @@
             </section>
         </main>
         <footer>
-            <div class="author"><a href="https://github.com/gorchezza" target="_blank">@gorchezza</a></div>
+            <div class="author"><a class="author-link" href="https://github.com/gorchezza" target="_blank">@gorchezza</a></div>
         </footer>
     </div>
 
